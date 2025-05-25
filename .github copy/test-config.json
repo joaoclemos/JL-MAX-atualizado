@@ -1,0 +1,49 @@
+{
+  "git": {
+    "requiredBranches": ["main"],
+    "minCommits": 5,
+    "minTags": 2,
+    "forbidNoFFMerge": false,
+    "minMerges": 0,
+    "minLinesChanged": 200,
+    "checkGitIgnore": false,
+    "requiredGitIgnoreEntries": [],
+    "requiredFiles": ["README.md", "public/index.html", "public/styles.css"]
+  },
+  "html": {
+    "requiredTags": ["html", "head", "body", "title", "meta", "header", "footer", "nav", "main"],
+    "relevantTags": ["section", "article", "h1", "h2", "h3", "h4", "h5", "h6", "p", "a", "div", "span","img", "ul", "ol", "li", "table", "tr", "td", "th", "form", "input", "button", "label", "select", "option", "textarea"],
+    "forbiddenTags": ["blink", "marquee", "font", "center", "b", "i", "u", "applet", "big", "strike", "tt"], 
+    "requiredAttributes": ["lang", "charset"],
+    "relevantAttributes": ["src", "href", "alt", "type", "name", "value", "for", "action", "method", "placeholder", "selected", "rows", "cols", "checked", "disabled", "required", "min", "max", "step", "pattern", "autocomplete", "autofocus", "multiple", "novalidate", "enctype", "target"],
+    "forbiddenAttributes": ["style", "align", "bgcolor", "border", "cellpadding", "cellspacing", "frame", "rules", "width", "height", "valign", "nowrap", "bgcolor", "border", "cellpadding", "cellspacing", "frame", "rules", "width", "height", "valign", "nowrap"] 
+  },
+  "css": {
+    "requiredChecks": {
+      "checkResetCSS": true,
+      "checkRelativeUnits": true,
+      "checkCodeComments": true,
+      "checkMinCSSRules": true,
+      "minCSSRules": 15,
+      "checkRequiredProperties": true,
+      "requiredProperties": ["color", "font-size", "background", "margin", "padding", "display"]
+    },
+    "bonusChecks": {
+      "variables": true,
+      "flexbox": true,
+      "grid": true,
+      "animations": true,
+      "mediaQueries": true
+    },
+    "penaltyChecks": {
+      "important": true,
+      "idSelectors": true,
+      "hexColors": true,
+      "deepNesting": true
+    }
+  },
+  "js": {
+    "requiredFunctions": ["fetch", "addEventListener"],
+    "forbiddenFunctions": ["eval", "document.write"]
+  }
+}

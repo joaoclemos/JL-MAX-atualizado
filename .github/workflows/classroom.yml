@@ -1,0 +1,40 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Teste HTML
+      id: teste-html
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Teste HTML
+        setup-command: npm install
+        command: npm test validateHTML.test.js
+        timeout: 10
+        max-score: 1
+    - name: Teste GIT
+      id: teste-git
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Teste GIT
+        setup-command: npm install
+        command: npm test validateGIT.test.js
+        timeout: 10
+        max-score: 1
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        TESTE-HTML_RESULTS: "${{steps.teste-html.outputs.result}}"
+        TESTE-GIT_RESULTS: "${{steps.teste-git.outputs.result}}"
+      with:
+        runners: teste-html,teste-git

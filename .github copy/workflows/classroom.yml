@@ -1,0 +1,64 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with: 
+        fetch-depth: 0
+    - name: Validate GIT
+      id: validate-git
+      uses: webtech-network/web-code-autograding/actions/command-grader-action@v1
+      with:
+        test-name: Validate GIT
+        # setup-command: npm install
+        # command: npm test validateGIT.test.js
+        # command-type: cmd
+        command: validateGITRepo
+        command-type: function
+        weight: 20
+        timeout: 10
+        max-score: 100
+    - name: Validate HTML
+      id: validate-html
+      uses: webtech-network/web-code-autograding/actions/command-grader-action@v1
+      with:
+        test-name: Validate HTML
+        # setup-command: npm install
+        # command: npm test validateHTML.test.js
+        # command-type: cmd
+        command: validateHTMLFile
+        command-type: function
+        weight: 40
+        timeout: 10
+        max-score: 100
+    - name: Validate CSS
+      id: validate-css
+      uses: webtech-network/web-code-autograding/actions/command-grader-action@v1
+      with:
+        test-name: Validate CSS
+        # setup-command: npm install
+        # command: npm test validateCSS.test.js
+        # command-type: cmd
+        command: validateCSSFile
+        command-type: function
+        weight: 40
+        timeout: 10
+        max-score: 100
+    - name: Autograding Reporter
+      uses: webtech-network/web-code-autograding/actions/reporter-grader-action@v1
+      env:
+        VALIDATE-GIT_RESULTS: "${{steps.validate-git.outputs.result}}"
+        VALIDATE-HTML_RESULTS: "${{steps.validate-html.outputs.result}}"
+        VALIDATE-CSS_RESULTS: "${{steps.validate-css.outputs.result}}"
+      with:
+        runners: validate-git,validate-html,validate-css
