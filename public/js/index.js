@@ -49,6 +49,7 @@ function montarListaFilmes(filmes, containerId) {
     const container = document.getElementById(containerId);
     if (!container) return;
     
+    container.className = 'movie-grid'; // Garante que use a classe movie-grid
     container.innerHTML = '';
     const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
     const favoritos = usuarioLogado?.favoritos || [];
@@ -56,7 +57,7 @@ function montarListaFilmes(filmes, containerId) {
     filmes.forEach(filme => {
         const isFavorito = favoritos.includes(filme.id) ? 'ativo' : '';
         const col = document.createElement('div');
-        col.className = 'col-md-3 col-sm-6 mb-4';
+        col.className = '';
         col.innerHTML = `
             <div class="filme-card">
                 <a href="detalhes.html?id=${filme.id}">
@@ -64,7 +65,8 @@ function montarListaFilmes(filmes, containerId) {
                         <img src="${filme.imagem}" 
                              alt="${filme.titulo}" 
                              loading="lazy"
-                             onerror="this.src='https://via.placeholder.com/300x450?text=Poster+Não+Disponível'">
+                             onerror="this.src='https://via.placeholder.com/200x300?text=Poster+Não+Disponível'"
+                             style="width: 100%; height: 100%; object-fit: cover;">
                         <button class="favorito ${isFavorito}" onclick="togglefavorito(this, '${filme.id}'); event.preventDefault();">
                             ❤️
                         </button>

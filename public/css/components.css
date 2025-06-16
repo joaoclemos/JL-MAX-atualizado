@@ -33,9 +33,11 @@
 .filme-card {
     position: relative;
     transition: all 0.3s ease;
-    height: 100%;
     border-radius: 8px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Largura dinâmica */
 }
 
 .filme-card:hover {
@@ -45,17 +47,17 @@
 
 .filme-image-container {
     position: relative;
-    width: 100%;
-    aspect-ratio: 2/3;
+    width: 100%; /* Largura dinâmica */
+    aspect-ratio: 2/3; /* Proporção 2:3 (equivalente a 200x300px em termos relativos) */
     overflow: hidden;
     border-radius: 8px;
-    max-height: 200px; /* Limita o tamanho da imagem */
+    flex: 1; /* Ocupa todo o espaço disponível no card */
 }
 
 .filme-image-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Garante que a imagem preencha o espaço */
     transition: transform 0.5s ease;
 }
 
@@ -66,23 +68,23 @@
 /* LAYOUT DA LISTA DE FILMES */
 .movie-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Largura mínima ajustada */
+    gap: 10px; /* Espaçamento reduzido */
     padding: 0;
     list-style: none;
 }
 
 @media (max-width: 768px) {
     .movie-grid {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: 15px;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Ajuste para telas menores */
+        gap: 8px;
     }
 }
 
 @media (max-width: 480px) {
     .movie-grid {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-        gap: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Ajuste para telas muito pequenas */
+        gap: 5px;
     }
 }
 
@@ -145,13 +147,13 @@
 
 /* ESTILOS PARA O BOTÃO DE ADMIN */
 .navbar-nav .nav-item#admin-cadastro-filme a {
-    color: #dc3545;
+    color: white; /* Alterado de #dc3545 para branco para melhor visibilidade */
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 .navbar-nav .nav-item#admin-cadastro-filme a:hover {
-    color: #ff6b6b;
+    color: #ff6b6b; /* Mantém o hover em vermelho claro */
 }
 
 /* ESTILOS PARA O BOTÃO DE LOGOUT PERSONALIZADO */
@@ -160,8 +162,8 @@
     color: white;
     font-weight: bold;
     border-radius: 20px;
-    padding: 5px 15px; /* Menor padding para deixar o botão menor */
-    font-size: 0.9rem; /* Texto menor */
+    padding: 5px 15px;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -175,5 +177,5 @@
 }
 
 .btn-logout-custom i {
-    margin-right: 3px; /* Ajuste fino para o ícone */
+    margin-right: 3px;
 }
