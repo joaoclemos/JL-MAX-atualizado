@@ -1,0 +1,260 @@
+/* HEADER - Cabeçalho fixo no topo da página */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #121212;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+header .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+header .logo {
+    width: 60px;
+    height: 50px;
+}
+
+header h1 {
+    font-size: 24px;
+    margin: 0;
+    color: white; /* Adicionado para garantir contraste */
+}
+
+header .header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* NAV - Navegação */
+.navbar-custom {
+    background-color: transparent;
+}
+
+.navbar-toggler {
+    border: none;
+    background: transparent;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 0.9)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 8px;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #dc3545;
+    padding: 8px 16px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    color: #ffd;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4);
+}
+
+/* Botões de login */
+.login-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 8px 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #ff6b6b;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4);
+}
+
+.login-button i {
+    font-size: 18px;
+}
+
+/* Formulário de pesquisa */
+.search-form {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding: 5px 15px;
+    transition: all 0.3s;
+}
+
+.search-form:focus-within {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.5);
+}
+
+.search-form input[type="search"] {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 8px 0;
+    width: 200px;
+    outline: none;
+}
+
+.search-form input[type="search"]::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-form button[type="submit"] {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* HEADER - Menu de navegação */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 8px;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #dc3545;
+    padding: 8px 16px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    color: #ffd;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4);
+}
+
+#admin-link {
+    display: none; /* Inicialmente oculto */
+}
+
+/* Correções para responsividade */
+@media (max-width: 992px) {
+    header {
+        flex-direction: row; /* Mantido como linha */
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .header-right {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+    }
+    
+    .search-form input[type="search"] {
+        width: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 20px;
+    }
+    
+    .logo {
+        width: 45px;
+        height: 38px;
+    }
+    
+    nav ul li a {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+    
+    .login-button {
+        padding: 6px 15px;
+        font-size: 14px;
+    }
+    
+    .navbar-collapse {
+        position: absolute;
+        top: 80px;
+        right: 10px;
+        background-color: rgba(20, 20, 20, 0.95);
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        z-index: 999;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 6px;
+    }
+}
+
+@media (max-width: 576px) {
+    header {
+        flex-wrap: wrap;
+    }
+    
+    .logo-container {
+        order: 1;
+    }
+    
+    .header-right {
+        order: 2;
+        width: 100%;
+    }
+    
+    header h1 {
+        font-size: 18px;
+    }
+}

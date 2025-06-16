@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuários</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/tables.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Usuários</h1>
+        <form id="form-usuario">
+            <input type="text" id="nome" class="form-control mb-2" placeholder="Nome" required>
+            <input type="email" id="email" class="form-control mb-2" placeholder="Email" required>
+            <input type="text" id="login" class="form-control mb-2" placeholder="Login" required>
+            <input type="password" id="senha" class="form-control mb-2" placeholder="Senha" required>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+        <button id="logout-btn" class="hidden btn btn-danger mt-2">Sair</button>
+        <div id="admin-section" class="hidden">
+            <h2>Lista de Usuários</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Login</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="usuarios-tbody"></tbody>
+            </table>
+        </div>
+        <div id="filmes-section" class="hidden">
+            <h2>Cadastrar Novo Filme</h2>
+            <form id="form-filme">
+                <input type="text" id="titulo" class="form-control mb-2" placeholder="Título" required>
+                <input type="text" id="imagem" class="form-control mb-2" placeholder="URL da Imagem" required>
+                <input type="text" id="imagemCarrossel" class="form-control mb-2" placeholder="URL da Imagem do Carrossel" required>
+                <input type="text" id="sinopse" class="form-control mb-2" placeholder="Sinopse" required>
+                <input type="number" id="ano" class="form-control mb-2" placeholder="Ano" required>
+                <input type="text" id="genero" class="form-control mb-2" placeholder="Gênero" required>
+                <button type="submit" class="btn btn-primary">Salvar Filme</button>
+            </form>
+        </div>
+        <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="successModalLabel">Sucesso</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Operação realizada com sucesso!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="errorModalLabel">Erro</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Esse filme já foi cadastrado!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/utilis.js"></script>
+    <script src="js/cadastro.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", inicializarCadastro);
+    </script>
+</body>
+</html>

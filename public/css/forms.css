@@ -1,0 +1,152 @@
+/* FORMULÁRIO DE PESQUISA */
+form.search-form {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+form.search-form input[type="search"] {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    outline: none;
+    width: 250px;
+    border-radius: 20px;
+}
+
+form.search-form input[type="search"]:focus {
+    border-color: #007BFF;
+}
+
+form.search-form button[type="submit"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+form.search-form button[type="submit"]:hover {
+    background-color: #6e5050;
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(255, 0, 0, 0.5);
+}
+
+/* CONTAINER DE LOGIN */
+.login-container {
+    width: 220px;
+    position: absolute;
+    top: 135px;
+    left: 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    z-index: 1001;
+}
+
+.login-container input {
+    width: 80px;
+    height: 35px;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.login-container input:focus {
+    border-color: #007BFF;
+}
+
+.login-container button {
+    width: 100%;
+    height: 45px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: white;
+    color: #ff0000;
+    border: 2px solid #ff0000;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.login-container button:hover {
+    color: #cc0000;
+    box-shadow: 0 6px 12px rgba(255, 0, 0, 0.5);
+    transform: scale(1.1);
+}
+
+.login-container button:active {
+    transform: scale(0.98);
+}
+
+/* FORMULÁRIO DE CADASTRO */
+#form-usuario, #form-filme {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+#form-usuario input, #form-filme input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+#form-usuario input:focus, #form-filme input:focus {
+    border-color: #007BFF;
+}
+
+@media (max-width: 768px) {
+    form.search-form {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    form.search-form input[type="search"] {
+        width: 35%;
+        height: 25%;
+        margin-bottom: 0;
+        margin-top: 13px;
+        margin-left: 130px;
+        font-size: 10px;
+    }
+
+    form.search-form button[type="submit"] {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    .login-container {
+        width: 25%;
+        top: 120px;
+        left: -250px;
+    }
+
+    .login-container form {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .login-container input {
+        width: 50px;
+        font-size: 14px;
+        padding: 8px;
+        height: 40px;
+    }
+}

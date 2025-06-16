@@ -1,0 +1,99 @@
+/* Estilo global do site */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --vermelho: #dc3545;
+    --vermelho-claro: #ff6b6b;
+    --cinza-escuro: #121212;
+    --cinza-medio: #1a1a1a;
+    --cinza-claro: #333;
+}
+
+html, body {
+    max-width: 100%;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--cinza-escuro);
+    color: white;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: var(--vermelho);
+}
+
+a:hover {
+    color: var(--vermelho-claro);
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Espaçamento para o header fixo */
+main {
+    margin-top: 150px;
+    padding-bottom: 50px;
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    main {
+        margin-top: 120px;
+    }
+}
+
+@media (max-width: 576px) {
+    main {
+        margin-top: 100px;
+    }
+}
+
+/* Estilos gerais para containers */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Estilos para botões */
+.btn {
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--vermelho);
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--vermelho-claro);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.4);
+}
+
+.btn-danger {
+    background-color: #333;
+    color: white;
+    border: 2px solid var(--vermelho);
+}
+
+.btn-danger:hover {
+    background-color: var(--vermelho);
+}

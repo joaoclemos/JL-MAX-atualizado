@@ -1,0 +1,129 @@
+/* Estilos para o carrossel */
+#destaquesCarousel {
+    background-color: transparent;
+    padding: 0;
+}
+
+#destaquesCarousel .carousel-item {
+    padding: 0 50px;
+}
+
+#destaquesCarousel .card {
+    border: 1px solid #333;
+    transition: transform 0.3s ease;
+    height: 100%; /* Garante altura total */
+}
+
+#destaquesCarousel .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
+}
+
+.carousel-img-container {
+    height: 300px; /* Altura fixa para todas as imagens */
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Preenche o espaço mantendo proporções */
+    object-position: center; /* Centraliza a imagem */
+    transition: transform 0.5s ease;
+}
+
+.card:hover .carousel-img {
+    transform: scale(1.05);
+}
+
+#destaquesCarousel .carousel-control-prev,
+#destaquesCarousel .carousel-control-next {
+    width: 5%;
+}
+
+#destaquesCarousel .carousel-control-prev-icon,
+#destaquesCarousel .carousel-control-next-icon {
+    background-color: #dc3545;
+    border-radius: 50%;
+    padding: 15px;
+}
+
+#destaquesCarousel .carousel-indicators button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #dc3545;
+    opacity: 0.5;
+}
+
+#destaquesCarousel .carousel-indicators .active {
+    opacity: 1;
+}
+
+#destaquesCarousel .carousel-indicators {
+    background: transparent;
+    padding: 10px 0;
+}
+
+#destaquesCarousel .carousel-indicators [data-bs-target] {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid transparent;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 8px;
+    opacity: 1;
+}
+
+#destaquesCarousel .carousel-indicators .active {
+    background-color: #dc3545;
+    border-color: white;
+    transform: scale(1.2);
+}
+.carousel-img-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2/3; /* Proporção vertical para posters */
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preencha o contêiner sem distorção */
+    transition: transform 0.5s ease;
+}
+
+.card:hover .carousel-img {
+    transform: scale(1.05);
+}
+
+.carousel-item {
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .carousel-img-container {
+        aspect-ratio: 2/3;
+        max-height: 250px; /* Limita o tamanho em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-img-container {
+        aspect-ratio: 2/3;
+        max-height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    #destaquesCarousel .carousel-item {
+        padding: 0 20px;
+    }
+
+    .carousel-img-container {
+        height: 200px; /* Altura menor para dispositivos móveis */
+    }
+}
