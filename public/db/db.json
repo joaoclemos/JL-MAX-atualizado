@@ -253,32 +253,18 @@
       "avaliacao": "6.6/10"
     },
     {
-      "id": "34a1f551-3abc-48a0-80dc-2719ad92f433",
-      "titulo": "terror jl",
+      "id": "JL",
+      "titulo": "JL",
       "imagem": "https://i.imgur.com/3yfS0wt.jpeg",
       "imagemCarrossel": "https://i.imgur.com/3yfS0wt.jpeg",
-      "sinopse": "terror do jl",
+      "sinopse": "JL",
       "ano": "2025",
-      "genero": "Terror",
-      "trailerId": "https://youtu.be/pGtuA2RIfIE?si=HLgjJZWHuqSniOxP",
-      "avaliacao": "0/10",
-      "elenco": "",
-      "direcao": "",
-      "duracao": ""
-    },
-    {
-      "id": "Terror",
-      "titulo": "terror jl",
-      "imagem": "https://i.imgur.com/3yfS0wt.jpeg",
-      "imagemCarrossel": "https://i.imgur.com/3yfS0wt.jpeg",
-      "sinopse": "terror do jl",
-      "ano": "2025",
-      "genero": "Terror",
-      "trailerId": "https://youtu.be/pGtuA2RIfIE?si=HLgjJZWHuqSniOxP",
-      "elenco": "Jl, João Lemos, Fábio",
-      "direcao": "Jl, João Lemos",
+      "genero": "Comédia",
+      "trailerId": "https://youtu.be/wIi6IrLYXDU?si=XLgKIdDSEm3RNwrD",
+      "elenco": "Jl e João Lemos",
+      "direcao": "João Lemos e JL",
       "duracao": "3 minutos",
-      "avaliacao": "7.8"
+      "avaliacao": "9.5"
     }
   ],
   "usuarios": [
@@ -287,21 +273,31 @@
       "login": "admin",
       "senha": "123",
       "nome": "Administrador do Sistema",
-      "email": "admin@abc.com"
+      "email": "admin@abc.com",
+      "admin": true,
+      "favoritos": [
+        "uncharted",
+        "animais",
+        "virgem"
+      ]
     },
     {
       "id": "ec37c83d-4b7f-458d-9e10-3fda7d37cd3e",
       "login": "user",
       "senha": "123",
       "nome": "Usuario Comum",
-      "email": "user@abc.com"
+      "email": "user@abc.com",
+      "admin": false,
+      "favoritos": []
     },
     {
       "id": "b57b7556-0332-4e8b-aafd-b887ac8ab34f",
       "nome": "João Carvalho Lemos",
       "email": "joaoclemos22@gmail.com",
       "login": "jl",
-      "senha": "12345"
+      "senha": "12345",
+      "admin": false,
+      "favoritos": []
     }
   ]
 }

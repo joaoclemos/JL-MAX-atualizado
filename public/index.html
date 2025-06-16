@@ -23,8 +23,8 @@
             <div class="login-container mb-2">
                 <button id="logout-btn" class="btn btn-danger btn-logout-custom hidden"><i class="fas fa-sign-out-alt"></i> Sair</button>
             </div>
-            <form action="pesquisar.php" method="GET" class="search-form d-flex align-items-center mb-3">
-                <input type="search" name="q" placeholder="Digite sua busca...">
+            <form class="search-form d-flex align-items-center mb-3" id="search-form">
+                <input type="search" id="searchInput" placeholder="Digite sua busca...">
                 <button type="submit">🔍</button>
             </form>
             <nav class="navbar navbar-expand-md navbar-custom">
@@ -72,8 +72,21 @@
         <div class="container-fluid">
             <div class="row" id="classicos"></div>
         </div>
+
+        <!-- Seção de gráficos -->
+        <div class="container mt-5">
+            <h2 class="mb-4">Estatísticas dos Filmes</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <canvas id="pizzaGenero"></canvas>
+                </div>
+                <div class="col-md-6">
+                    <canvas id="barrasAvaliacao"></canvas>
+                </div>
+            </div>
+        </div>
     </main>
-    <footer class="py-4">
+    <footer id="footer" class="py-4">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 text-center mb-4">
@@ -115,5 +128,8 @@
     <script src="js/carousel.js"></script>
     <script src="js/favoritos.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/dashboard.js"></script>
 </body>
 </html>

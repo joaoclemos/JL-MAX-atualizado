@@ -1,17 +1,32 @@
-function togglefavorito(btn, id) {
-    btn.classList.toggle("ativo");
-    const favoritos = JSON.parse(localStorage.getItem("favoritos") || "[]");
+async function togglefavorito(btn, id) {
+    const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+    if (!usuarioLogado) return;
 
-    if (favoritos.includes(id)) {
-        localStorage.setItem("favoritos", JSON.stringify(favoritos.filter(f => f !== id)));
-    } else {
-        favoritos.push(id);
-        localStorage.setItem("favoritos", JSON.stringify(favoritos));
-    }
-    console.log('Favoritos atualizados:', JSON.parse(localStorage.getItem("favoritos")));
-    
-    if (window.location.pathname.includes("favoritos.html")) {
-        mostrarFavoritos('lista-favoritos');
+    try {
+        const response = await fetch(`http://localhost:3000/usuarios/${usuarioLogado.id}`);
+        const usuario = await response.json();
+        let favoritos = usuario.favoritos || [];
+
+        if (favoritos.includes(id)) {
+            favoritos = favoritos.filter(f => f !== id);
+            btn.classList.remove('ativo');
+        } else {
+            favoritos.push(id);
+            btn.classList.add('ativo');
+        }
+
+        await fetch(`http://localhost:3000/usuarios/${usuarioLogado.id}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ favoritos })
+        });
+
+        localStorage.setItem('usuarioLogado', JSON.stringify({ ...usuario, favoritos }));
+        if (window.location.pathname.includes("favoritos.html")) {
+            mostrarFavoritos('lista-favoritos');
+        }
+    } catch (error) {
+        console.error('Erro ao atualizar favoritos:', error);
     }
 }
 
@@ -22,21 +37,20 @@ async function mostrarFavoritos(containerId) {
         return;
     }
 
-    const favoritosIds = JSON.parse(localStorage.getItem("favoritos") || "[]");
-    console.log('IDs dos favoritos:', favoritosIds);
-    
-    if (favoritosIds.length === 0) {
-        document.getElementById('empty-favorites').classList.remove('hidden');
-        if (document.getElementById(containerId)) {
-            document.getElementById(containerId).innerHTML = '';
-        }
-        return;
-    }
-    
     try {
-        const filmes = await carregarFilmesLocal();
+        const response = await fetch(`http://localhost:3000/usuarios/${usuarioLogado.id}`);
+        const usuario = await response.json();
+        const favoritosIds = usuario.favoritos || [];
+        
+        if (favoritosIds.length === 0) {
+            document.getElementById('empty-favorites').classList.remove('hidden');
+            document.getElementById(containerId).innerHTML = '';
+            return;
+        }
+        
+        const filmesResponse = await fetch('http://localhost:3000/filmes');
+        const filmes = await filmesResponse.json();
         const filmesFavoritos = filmes.filter(filme => favoritosIds.includes(filme.id));
-        console.log('Filmes favoritos:', filmesFavoritos);
         
         const container = document.getElementById(containerId);
         if (!container) return;
@@ -70,8 +84,6 @@ async function mostrarFavoritos(containerId) {
         document.getElementById('empty-favorites').classList.add('hidden');
     } catch (error) {
         console.error('Erro ao carregar favoritos:', error);
-        if (document.getElementById('empty-favorites')) {
-            document.getElementById('empty-favorites').classList.remove('hidden');
-        }
+        document.getElementById('empty-favorites').classList.remove('hidden');
     }
 }
