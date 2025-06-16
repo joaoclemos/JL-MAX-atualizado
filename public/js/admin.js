@@ -20,8 +20,8 @@ async function carregarFilmes() {
             tr.innerHTML = `
                 <td>${filme.titulo}</td>
                 <td>
-                    <button class="btn btn-sm btn-warning" onclick="editarFilme('${filme.id}')">Editar</button>
-                    <button class="btn btn-sm btn-danger" onclick="excluirFilme('${filme.id}')">Excluir</button>
+                    <button class="btn btn-editar" onclick="editarFilme('${filme.id}')"><i class="fas fa-edit"></i> Editar</button>
+                    <button class="btn btn-excluir" onclick="excluirFilme('${filme.id}')"><i class="fas fa-trash-alt"></i> Excluir</button>
                 </td>
             `;
             tbody.appendChild(tr);

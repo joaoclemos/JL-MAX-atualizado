@@ -251,20 +251,6 @@
       "direcao": "Susanne Bier",
       "duracao": "124 minutos",
       "avaliacao": "6.6/10"
-    },
-    {
-      "id": "JL",
-      "titulo": "JL",
-      "imagem": "https://i.imgur.com/3yfS0wt.jpeg",
-      "imagemCarrossel": "https://i.imgur.com/3yfS0wt.jpeg",
-      "sinopse": "JL",
-      "ano": "2025",
-      "genero": "Comédia",
-      "trailerId": "https://youtu.be/wIi6IrLYXDU?si=XLgKIdDSEm3RNwrD",
-      "elenco": "Jl e João Lemos",
-      "direcao": "João Lemos e JL",
-      "duracao": "3 minutos",
-      "avaliacao": "9.5"
     }
   ],
   "usuarios": [

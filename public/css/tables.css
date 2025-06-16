@@ -16,6 +16,58 @@
     background-color: #f2f2f2;
     color: #121212;
 }
+/* Estilos existentes, se houver */
+.table {
+    color: #fff;
+}
+
+.btn-editar {
+    background: linear-gradient(45deg, #28a745, #218838);
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.btn-editar:hover {
+    background: linear-gradient(45deg, #218838, #1e7e34);
+    transform: scale(1.05);
+    color: #fff;
+}
+
+.btn-editar i {
+    margin-right: 5px;
+}
+
+.btn-excluir {
+    background: linear-gradient(45deg, #dc3545, #c82333);
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.btn-excluir:hover {
+    background: linear-gradient(45deg, #c82333, #bd2130);
+    transform: scale(1.05);
+    color: #fff;
+}
+
+.btn-excluir i {
+    margin-right: 5px;
+}
+.btn-voltar {
+    background: linear-gradient(45deg, #6c757d, #5a6268);
+    border: none;
+    transition: transform 0.2s, background 0.3s;
+}
+.btn-voltar:hover {
+    background: linear-gradient(45deg, #5a6268, #4e555b);
+    transform: scale(1.05);
+}
 
 @media (max-width: 768px) {
     .table {
